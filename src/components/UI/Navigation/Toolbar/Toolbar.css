@@ -1,0 +1,42 @@
+nav {
+  width: 100vw;
+  background-color: gray;
+}
+
+.toolbar {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+body {
+  margin: 0;
+}
+
+.button-menu {
+  display: none;
+}
+
+@media only screen and (max-width: 500px) {
+  .toolbar {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .button-menu {
+    /*makes the button visible*/
+    display: block;
+
+    /*style it a little bit!*/
+    padding: 2vw;
+    font-size: 3vh;
+    background-color: transparent;
+    border: none;
+
+    /*outline none removes the default blue border that appears anytime you click on the button*/
+    outline: none;
+
+    cursor: pointer;
+    /*this puts the button on the left*/
+    align-self: flex-start;
+  }
+}

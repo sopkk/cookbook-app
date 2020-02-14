@@ -1,0 +1,22 @@
+.item {
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+  width: 200px;
+  height: 150px;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.item:hover {
+  cursor: pointer;
+}
+
+.item > img {
+  border-radius: 25px;
+  background-position: left top;
+  background-repeat: repeat;
+  width: 200px;
+  height: 150px;
+}
