@@ -3,7 +3,7 @@ import * as React from "react";
 import Recipe from "../Recipe/Recipe";
 import "./RecipeDetails.css";
 
-interface Props {
+export interface Props {
   name: string;
   image: string;
   ingredients: IIngridients;

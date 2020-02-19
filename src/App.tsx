@@ -1,6 +1,6 @@
 import React from "react";
 
-import Recipes from "./components/Recipes/Recipes";
+import Recipes from "./containers/Recipes/Recipes";
 import Toolbar from "./components/UI/Navigation/Toolbar/Toolbar";
 import "./App.css";
 
