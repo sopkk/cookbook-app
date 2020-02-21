@@ -18,13 +18,15 @@ const RecipeDetails: React.FunctionComponent<Props> = ({
   image,
   ingredients
 }) => {
-  const ingredientsList = Object.keys(ingredients).map((key: string) => {
-    return (
+  let ingredientsList = null;
+
+  if (ingredients) {
+    ingredientsList = Object.keys(ingredients).map((key: string) => (
       <li key={key}>
         {key} {ingredients[key]}
       </li>
-    );
-  });
+    ));
+  }
 
   return (
     <div style={{ display: "flex" }}>

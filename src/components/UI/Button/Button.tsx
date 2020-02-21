@@ -1,22 +1,62 @@
 import * as React from "react";
 
-import "./Button.css";
-
 interface Props {
+  type: string;
   onClickHandler?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => void;
   name: string;
+  className: string;
 }
 
-const Button: React.FunctionComponent<Props> = ({ children, name }) => {
-  return (
-    <div>
-      <button type="button" className="button-add-recipe" title={name}>
-        {children}
-      </button>
-    </div>
-  );
+const Button: React.FunctionComponent<Props> = ({
+  type,
+  children,
+  name,
+  className,
+  onClickHandler
+}) => {
+  switch (type) {
+    case "submit":
+      return (
+        <div>
+          <button
+            type="submit"
+            className={className}
+            title={name}
+            onClick={onClickHandler}
+          >
+            {children}
+          </button>
+        </div>
+      );
+    case "button":
+      return (
+        <div>
+          <button
+            type="button"
+            className={className}
+            title={name}
+            onClick={onClickHandler}
+          >
+            {children}
+          </button>
+        </div>
+      );
+    default:
+      return (
+        <div>
+          <button
+            type="button"
+            className={className}
+            title={name}
+            onClick={onClickHandler}
+          >
+            {children}
+          </button>
+        </div>
+      );
+  }
 };
 
 export default Button;

@@ -1,6 +1,8 @@
 import * as React from "react";
 import "./Recipe.css";
 
+//const DEFAULT_IMAGE_PATH = "../../assets/images/recipe.jpg";
+
 interface Props {
   name: string;
   image: string;
@@ -15,12 +17,10 @@ const Recipe: React.FunctionComponent<Props> = ({
   image,
   className,
   onClickHandler
-}) => {
-  return (
-    <div className={className} onClick={onClickHandler}>
-      <img src={image} alt={name} />
-      <span>{name}</span>
-    </div>
-  );
-};
+}) => (
+  <div className={className} onClick={onClickHandler}>
+    <img src={image} alt={name} />
+    <span>{name}</span>
+  </div>
+);
 export default Recipe;

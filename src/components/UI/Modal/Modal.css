@@ -1,0 +1,31 @@
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 20%;
+}
+
+.new-recipe-title {
+  position: absolute;
+  left: 30%;
+  top: 5%;
+}
+
+.button-add-new-recipe {
+  background-color: teal;
+  color: white;
+  font-size: 12px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition-duration: 0.4s;
+}
+
+.button-add-new-recipe:hover {
+  background-color: white;
+  color: teal;
+}
+
+.button-add-ingredient {
+  border-radius: 2%;
+  position: absolute;
+}
