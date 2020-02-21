@@ -1,0 +1,18 @@
+.toolbar-item {
+  list-style-type: none;
+  margin: 0 2vw;
+  font-size: 3vh;
+  padding: 1vw;
+  cursor: pointer;
+}
+
+.toolbar-item:hover {
+  background-color: darkgray;
+}
+
+@media only screen and (max-width: 500px) {
+  .toolbar-item {
+    margin: 0;
+    display: block;
+  }
+}
