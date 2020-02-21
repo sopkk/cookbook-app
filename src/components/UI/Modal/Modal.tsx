@@ -65,8 +65,16 @@ const Modal: React.FunctionComponent<Props> = ({
     setRecipe(updatedRecipe);
   };
 
+  const onClickIngredient = (key: string) => () => {
+    setRecipe(prevState => {
+      const newRecipe: IRecipe = { ...prevState };
+      delete newRecipe.ingredients[key];
+      return newRecipe;
+    });
+  };
+
   const ingredientsList = Object.keys(recipe.ingredients).map((key: string) => (
-    <li key={key}>
+    <li className="li-ingredients" key={key} onClick={onClickIngredient(key)}>
       {key}: {recipe.ingredients[key]}
     </li>
   ));

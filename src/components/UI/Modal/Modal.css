@@ -29,3 +29,11 @@
   border-radius: 2%;
   position: absolute;
 }
+
+.li-ingredients {
+  list-style-type: none;
+}
+
+.li-ingredients:hover {
+  cursor: pointer;
+}
