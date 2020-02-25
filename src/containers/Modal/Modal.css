@@ -20,6 +20,11 @@
   transition-duration: 0.4s;
 }
 
+.button-add-new-recipe:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .button-add-new-recipe:hover {
   background-color: white;
   color: teal;

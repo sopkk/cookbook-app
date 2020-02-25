@@ -7,8 +7,9 @@ import getRecipes from "../../store/Recipes/selectors/getRecipes";
 import { IRecipe } from "../../store/Recipes/RecipeTypes";
 import Recipe from "../../components/Recipe/Recipe";
 import Button from "../../components/UI/Button/Button";
-import Modal, { ModalType } from "../../components/UI/Modal/Modal";
+import Modal, { ModalType } from "../Modal/Modal";
 import "./Recipes.css";
+import ValidateRecipe from "../Modal/Validation";
 
 const Recipes: React.FunctionComponent = () => {
   const [recipeShowed, setRecipeShowed] = React.useState<JSX.Element | string>(
@@ -47,9 +48,12 @@ const Recipes: React.FunctionComponent = () => {
   };
 
   const recipeAddedHandler = (recipe: IRecipe) => {
-    console.log("recept pre dispatcha: ", recipe);
-    dispatch(recipesActions.addRecipe(recipe));
-    setRecipeModal(null);
+    if (ValidateRecipe(recipe)) {
+      dispatch(recipesActions.addRecipe(recipe));
+      setRecipeModal(null);
+    } else {
+      alert("recipe not added. add recipe name and at least 1 ingredient");
+    }
   };
 
   const addNewRecipeHandler = (

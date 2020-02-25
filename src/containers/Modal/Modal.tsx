@@ -1,10 +1,10 @@
 import * as React from "react";
 
-import Button from "../Button/Button";
-import Input from "../Input/Input";
+import { IIngridients } from "../../components/RecipeDetails/RecipeDetails";
+import { IRecipe } from "../../store/Recipes/RecipeTypes";
+import Button from "../../components/UI/Button/Button";
+import Input from "../../components/UI/Input/Input";
 import "./Modal.css";
-import { IRecipe } from "../../../store/Recipes/RecipeTypes";
-import { IIngridients } from "../../../components/RecipeDetails/RecipeDetails";
 
 interface Props {
   type: ModalType;
@@ -54,15 +54,20 @@ const Modal: React.FunctionComponent<Props> = ({
   };
 
   const onIngridientAddedHandler = () => {
-    const updatedIngredients: IIngridients = {
-      ...recipe.ingredients,
-      [ingredient]: "1"
-    };
-    const updatedRecipe: IRecipe = {
-      ...recipe,
-      ingredients: updatedIngredients
-    };
-    setRecipe(updatedRecipe);
+    if (ingredient.trim() !== "") {
+      const updatedIngredients: IIngridients = {
+        ...recipe.ingredients,
+        [ingredient]: "1"
+      };
+      const updatedRecipe: IRecipe = {
+        ...recipe,
+        ingredients: updatedIngredients
+      };
+      setRecipe(updatedRecipe);
+      setIngredient("");
+    } else {
+      alert("add ingredient name");
+    }
   };
 
   const onClickIngredient = (key: string) => () => {
@@ -74,9 +79,11 @@ const Modal: React.FunctionComponent<Props> = ({
   };
 
   const ingredientsList = Object.keys(recipe.ingredients).map((key: string) => (
-    <li className="li-ingredients" key={key} onClick={onClickIngredient(key)}>
-      {key}: {recipe.ingredients[key]}
-    </li>
+    <div key={key} style={{ display: "flex" }}>
+      <li className="li-ingredients" onClick={onClickIngredient(key)}>
+        {key}: {recipe.ingredients[key]}
+      </li>
+    </div>
   ));
 
   let modalContent = null;
@@ -87,7 +94,7 @@ const Modal: React.FunctionComponent<Props> = ({
           <div style={{ display: "flex" }}>
             <h2>New Recipe</h2>
             <Button
-              type="submit"
+              type="button"
               name="button-add-new-recipe"
               className="button-add-new-recipe"
               onClickHandler={onClickHandler}
@@ -117,12 +124,14 @@ const Modal: React.FunctionComponent<Props> = ({
               label="Add an ingredient"
               placeholder="ingredient"
               handleChange={onIngredientChangeHandler}
+              value={ingredient}
             />
             <Button
               type="click"
               name="add-ingredient"
               className="button-add-ingredient"
               onClickHandler={onIngridientAddedHandler}
+              disabled={false}
             >
               +
             </Button>

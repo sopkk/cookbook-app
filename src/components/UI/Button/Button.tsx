@@ -6,6 +6,7 @@ interface Props {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => void;
   name: string;
+  disabled?: boolean;
   className: string;
 }
 
@@ -13,6 +14,7 @@ const Button: React.FunctionComponent<Props> = ({
   type,
   children,
   name,
+  disabled,
   className,
   onClickHandler
 }) => {
@@ -25,6 +27,7 @@ const Button: React.FunctionComponent<Props> = ({
             className={className}
             title={name}
             onClick={onClickHandler}
+            disabled={disabled}
           >
             {children}
           </button>
@@ -38,6 +41,7 @@ const Button: React.FunctionComponent<Props> = ({
             className={className}
             title={name}
             onClick={onClickHandler}
+            disabled={disabled}
           >
             {children}
           </button>
@@ -51,6 +55,7 @@ const Button: React.FunctionComponent<Props> = ({
             className={className}
             title={name}
             onClick={onClickHandler}
+            disabled={disabled}
           >
             {children}
           </button>
