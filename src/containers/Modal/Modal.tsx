@@ -17,7 +17,8 @@ interface Props {
 
 export enum ModalType {
   Add = "add",
-  Edit = "edit"
+  Edit = "edit",
+  ValidationMessage = "validation-message"
 }
 
 const Modal: React.FunctionComponent<Props> = ({

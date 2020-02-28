@@ -32,14 +32,27 @@ const Recipes: React.FunctionComponent = () => {
     setRecipeShowed(<RecipeDetails {...recipeItem} />);
   };
 
+  const deleteRecipe = (id: string) => {
+    console.log("delete");
+    dispatch(recipesActions.deleteRecipe(id));
+  };
+
   const recipes: JSX.Element[] = Object.keys(recipeList).map((id: string) => {
     return (
-      <Recipe
-        key={id}
-        {...recipeList[id]}
-        className="item"
-        onClickHandler={() => showDetails(recipeList[id])}
-      />
+      <div key={id} style={{ position: "relative" }}>
+        <div
+          className="delete-recipe-item"
+          style={{ position: "absolute", top: "20px", right: "20px" }}
+          onClick={() => deleteRecipe(id)}
+        >
+          X
+        </div>
+        <Recipe
+          {...recipeList[id]}
+          className="item"
+          onClickHandler={() => showDetails(recipeList[id])}
+        />
+      </div>
     );
   });
 

@@ -13,6 +13,16 @@
   cursor: pointer;
 }
 
+.delete-recipe-item {
+  position: "absolute";
+  top: "20px";
+  right: "20px";
+}
+
+.delete-recipe-item:hover {
+  cursor: grab;
+}
+
 .item > img {
   border-radius: 25px;
   background-position: left top;

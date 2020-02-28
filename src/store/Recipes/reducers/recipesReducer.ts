@@ -26,10 +26,13 @@ const recipesReducer = (
       const newRecipe: IRecipe = action.payload.recipe;
       const id: string = action.payload.id;
       const updatedRecipes: IRecipeList = { ...state.recipes, [id]: newRecipe };
-      console.log("new recipes: ", updatedRecipes);
       return { ...state, recipes: updatedRecipes };
     case actionTypes.ADD_RECIPE_FAILED:
       return state;
+    case actionTypes.DELETE_RECIPE_SUCCESS:
+      const remainingRecipes: IRecipeList = { ...state.recipes };
+      delete remainingRecipes[action.payload];
+      return { ...state, recipes: remainingRecipes };
     default:
       return state;
   }
